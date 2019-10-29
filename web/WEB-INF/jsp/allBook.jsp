@@ -36,12 +36,27 @@
         </div>
     </div>
     <div class="row">
+
         <div class="col-md-4 column">
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增书籍</a>
         </div>
+        <div class="col-md-2 column">
+
+        </div>
+
+        <form action="/book/queryBook" method="get">
+            <div class="col-md-5 column">
+                <input type="text" name="queryBookName" class="form-control" placeholder="请输入要搜索的名称...">
+            </div>
+            <div class="col-md-1 column">
+                <input type="submit" class="btn btn-primary" value="查询">
+            </div>
+
+        </form>
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
+            <c:if test="${not empty error}"><div class="alert alert-danger">${error}</div></c:if>
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>

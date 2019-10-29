@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -66,4 +67,20 @@ public class BookController {
         bookService.updateBook(book);
         return "redirect:/book/allBook";
     }
+
+    @RequestMapping("queryBook")
+    public String queryBook(@RequestParam("queryBookName") String name,Model model){
+        Books books = bookService.queryBookByName(name);
+        List<Books> list = new ArrayList<Books>();
+
+        if(books != null) {
+            list.add(books);
+        }else{
+            list = bookService.queryAllBook();
+            model.addAttribute("error","未查到");
+        }
+        model.addAttribute("list",list);
+        return "allBook";
+    }
+
 }
