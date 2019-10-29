@@ -9,7 +9,7 @@ public interface BookMapper {
     //增加
     int addBook(Books books);
     //删除
-    int deleteBookById(@Param("bookID")int id);
+    int deleteBookById(@Param("bookID") int id);
     //修改
     int updateBook(Books books);
     //查询

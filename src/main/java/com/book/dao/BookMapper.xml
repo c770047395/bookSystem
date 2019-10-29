@@ -3,12 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.book.dao.BookMapper">
-    <insert id="addBook" parameterType="int">
+    <insert id="addBook" parameterType="Books">
         insert into books (bookName, bookCounts, detail)
         values (#{bookName},#{bookCounts},#{detail})
     </insert>
     <delete id="deleteBookById" parameterType="int">
-        delete from books where id = #{bookID}
+        delete from books where bookID = #{bookID}
     </delete>
     <update id="updateBook" parameterType="Books">
         update books set bookName = #{bookName}, bookCounts = #{bookCounts}, detail = #{detail} where bookID = #{bookID}

@@ -4,12 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
     <!--配置数据源，交给Spring做-->
     <typeAliases>
         <package name="com.book.pojo"/>
     </typeAliases>
     
+
+    
     <mappers>
-        <mapper class="com.book.dao"/>
+        <mapper class="com.book.dao.BookMapper"/>
     </mappers>
 </configuration>
